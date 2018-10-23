@@ -8,6 +8,7 @@ commands.append("-DCPU_ONLY=ON")
 commands.append("-DUSE_libstdcpp=OFF")
 commands.append("-DBUILD_python=ON")
 commands.append("-DBUILD_matlab=ON")
+commands.append("-DUSE_HDF5=ON")
 
 #commands.append("-DBoost_INCLUDE_DIR=/usr/local/brew/Cellar/boost/1.67.0_1/include")
 commands.append("-DGFLAGS_INCLUDE_DIR=/usr/local/brew/Cellar/gflags/2.2.1/include")
