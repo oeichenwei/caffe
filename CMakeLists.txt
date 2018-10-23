@@ -42,9 +42,6 @@ caffe_option(USE_LMDB "Build with lmdb" ON)
 caffe_option(ALLOW_LMDB_NOLOCK "Allow MDB_NOLOCK when reading LMDB files (only if necessary)" OFF)
 caffe_option(USE_OPENMP "Link with OpenMP (when your BLAS wants OpenMP and you get linker errors)" OFF)
 
-# This code is taken from https://github.com/sh1r0/caffe-android-lib
-caffe_option(USE_HDF5 "Build with hdf5" ON)
-
 # ---[ Dependencies
 include(cmake/Dependencies.cmake)
 
@@ -58,6 +55,9 @@ caffe_set_caffe_link()
 if(USE_libstdcpp)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libstdc++")
   message("-- Warning: forcing libstdc++ (controlled by USE_libstdcpp option in cmake)")
+else()
+  set(CMAKE_CXX_STANDARD 11)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")  
 endif()
 
 # ---[ Warnings
@@ -122,4 +122,3 @@ caffe_print_configuration_summary()
 
 # ---[ Export configs generation
 caffe_generate_export_configs()
-
